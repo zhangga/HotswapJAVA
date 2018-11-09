@@ -8,3 +8,8 @@
 ###热更服务器代码工程 。
 ###lib包下的tools.jar即${JAVA_HOME}/lib/tools.jar.该jar包分win和linux版本。当前项目下方的是linux版。
 项目下打包好的hotswap-update.jar包是可直接使用的，已经把linux版的tools.jar一起打进去了。
+
+##release工程：
+###将release直接部署到linux，执行sh即可。
+注意：修改sh中的目录地址。
+修改config文件中的配置。
