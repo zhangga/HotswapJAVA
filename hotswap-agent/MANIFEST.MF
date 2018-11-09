@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Agent-Class: org.kwai.hotswap.KwaiAgent
+Can-Redefine-Classes: true
+Created-By: 1.6.0_29
+
