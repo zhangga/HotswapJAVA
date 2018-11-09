@@ -42,11 +42,10 @@ public class HotUpdate {
 			
 			VirtualMachine vm = VirtualMachine.attach(pid);
 			for (String clazz : clazzs) {				
-				String[] clazzStr = clazz.split("\\.");
-				String path = dir + clazzStr[clazzStr.length - 1] + ".class";
+				String path = dir + "class/" + clazz;
 				System.err.println("path == " + path);
 				// path参数即agentmain()方法的第一个参数
-				vm.loadAgent(dir + "agent/hotswap-agent.jar", dir + path);
+				vm.loadAgent(dir + "agent/hotswap-agent.jar", path);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
