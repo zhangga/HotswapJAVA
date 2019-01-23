@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.1
+Premain-Class: com.kwai.clover.hotswap.ClassReloader
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true
+Created-By: 14.1-b02 (Sun Microsystems Inc.)
+Boot-Class-Path: classReloader.jar
+
