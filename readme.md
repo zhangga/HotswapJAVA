@@ -13,3 +13,10 @@
 ###将release直接部署到linux，执行sh即可。
 注意：修改sh中的目录地址。
 修改config文件中的配置。
+
+
+
+#premain方式，可以新增类和方法。
+##JVM启动时添加参数：-javaagent:D:\GitHub\HotswapJAVA\hotswap-premain\classReloader.jar
+##工程中开启线程扫描指定文件夹看时候有需要热更的class文件，然后加载。
+##详情见hotswap-update/HotPremainTest.java
