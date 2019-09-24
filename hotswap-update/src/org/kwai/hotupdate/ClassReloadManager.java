@@ -5,6 +5,8 @@ import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.kwai.clover.hotswap.ClassReloader;
+
 /**
  * 热更代码（将编译好的class文件建立好完整包名后放到data/classhotfix）
  *
@@ -17,7 +19,8 @@ public class ClassReloadManager {
 	 * 热更代码（将编译好的class文件建立好完整包名后放到data/classhotfix）
 	 */
 	public static void reloadClass() {
-		String classPath = Config.RES_PATH + CLASSDIR;
+		String classPath = "/root/hotfix/" + CLASSDIR;
+		classPath = "./" + CLASSDIR;
 		List<File> classFiles = new ArrayList<>();
 		getClassFiles(classPath, classFiles);
 		for(File file : classFiles) {
@@ -26,6 +29,7 @@ public class ClassReloadManager {
 				String url = file.getAbsolutePath().replace(CLASSDIR, "@");
 				url = url.substring(url.indexOf('@') + 1).replaceAll("\\\\", ".").replaceAll("/", ".");
 				String forName = url.substring(1, url.length() - 6);
+				System.out.print("找到class文件：" + forName);
 				clazz = Class.forName(forName);
 				// ClassReloader类为hotswap-premain工程下的。
 				ClassReloader.reload(clazz, file);

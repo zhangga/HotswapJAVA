@@ -1,5 +1,10 @@
 package org.kwai.hotupdate;
 
+/**
+ * premain方式测试类
+ * @author U-Demon
+ * @date 2019年9月23日 上午11:17:10
+ */
 public class HotPremainTest {
 	
 	/**
@@ -11,14 +16,46 @@ public class HotPremainTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		while (true) {
-			System.out.println(1);
-			try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+		// 启动测试类
+		startTest();
+		// 启动线程扫描
+		startReload();
+	}
+	
+	public static void startTest() {
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				Hotfix hot = new Hotfix();
+				
+				while (true) {					
+					hot.exec();
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
 			}
-		}
+		}).start();
+	}
+	
+	public static void startReload() {
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				while (true) {					
+					try {
+						Thread.sleep(5000);
+						ClassReloadManager.reloadClass();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}).start();
 	}
 
 }
