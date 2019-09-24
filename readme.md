@@ -16,7 +16,7 @@
 
 
 
-# premain方式，可以新增类和方法。
+# premain和agent方式，都不可以新增、删除和改变方法的签名。
 ## JVM启动时添加参数：-javaagent:D:\GitHub\HotswapJAVA\hotswap-premain\classReloader.jar
 ## 工程中开启线程扫描指定文件夹看时候有需要热更的class文件，然后加载。
 ## 详情见示例hotswap-update/HotPremainTest.java
